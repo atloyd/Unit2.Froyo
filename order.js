@@ -13,9 +13,15 @@ let splitInput = rawOrder.split(',');
 
 const froyo = {};
 
-splitInput.forEach((flavor) => {
-    froyo[flavor] = (froyo[flavor] || 0) + 1;
-});
+for(i = 0; i < splitInput.length; i++){
+    let flavor = splitInput[i];
+
+    if(froyo.hasOwnProperty(flavor)){
+        froyo[flavor]++;
+    } else{
+        froyo[flavor] = 1;
+    }
+}
 
 console.table(froyo);
 
